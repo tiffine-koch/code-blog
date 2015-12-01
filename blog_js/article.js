@@ -12,8 +12,6 @@ var Article = function(prop) {
   this.body = prop.body;
 }
 //protoype to render in html
-
-
 Article.prototype.toHTML = function() {
   var $article = $('#template').clone();
     $article.removeAttr('id');
@@ -31,8 +29,6 @@ function createArticle () {
     var newArticle = new Article(rawData[i]);
     newArticle.toHTML();
     articleObjects.push(newArticle);
-    //console.log(articleObjects);
-    //console.log(i);
   }
 }
 createArticle();
