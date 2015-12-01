@@ -24,6 +24,7 @@ Article.prototype.toHTML = function() {
     $('main').append($article);
     //console.log($article);
 }
+
 function createArticle () {
   for (var i = 0; i < rawData.length; i++) {
     var newArticle = new Article(rawData[i]);
@@ -31,4 +32,17 @@ function createArticle () {
     articleObjects.push(newArticle);
   }
 }
+//callback function for sorting articles by date
 createArticle();
+//
+// blog.rawData function(){
+//     if(a.publishedOn > b.publishedOn) (return -1);
+//     if(a.publishedOn > b.publishedOn) (return 1);
+//     return 0;
+//   };
+// }
+//
+// $(document).ready(){
+//   blog.sortRawData();
+//   blog.createRawData();
+// }
