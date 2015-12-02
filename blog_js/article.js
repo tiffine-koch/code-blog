@@ -11,6 +11,7 @@ var Article = function(prop) {
   this.publishedOn = prop.publishedOn;
   this.body = prop.body;
 }
+
 //protoype to render in html
 Article.prototype.toHTML = function() {
   var $article = $('#template').clone();
@@ -31,6 +32,8 @@ function createArticle () {
     newArticle.toHTML();
     articleObjects.push(newArticle);
   }
+  //remove template from html
+  $('#template').remove();
 }
 //callback function for sorting articles by date
 createArticle();

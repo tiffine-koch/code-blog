@@ -2,31 +2,38 @@
 
 <html>
 <head>
+  <link href="./blog_css/article.css" rel="stylesheet" />
   <link href="./blog_css/skeleton.css" rel="stylesheet" />
   <link href="./blog_css/normalize.css" rel="stylesheet" />
-  <script src="./blog_js/jquery-1.11.3.min.js"></script>
-  <script src="./blog_js/blogArticles.js"></script>
-  <script src="./blog_js/article.js"></script>
 </head>
 <body>
   <header>
      <h1>
       My So-Code Life
     </h1>
+    <nav id="index-nav">
+      <a id="header-link">Author</a>
+      <a id="header-link">Title</a>
+      <a id="header-link">Twitter</a>
+      <a id="header-link">Linkedin</a>
+    </nav>
   </header>
   <main>
     <article id="template">
-        <ul>
-          <li class="title"></li>
-          <li class="category"></li>
-          <li class="author"></li>
-          <li class="authorUrl"></li>
-          <li class="publishedOn"></li>
-          <li class="body"></li>
-        </ul>
+          <h2 class="title"></h2>
+        <nav id="article-nav">
+          By  <a class="author"></a>
+          Published On  <a class="publishedOn"></a>
+          Category  <a class="category"></a>
+          <a id="author-link" href="authorUrl">About the Author</a>
+        </nav>
+          <section class="body"></section>
       </article>
   </main>
   <footer>
+    <script src="./blog_js/jquery-1.11.3.min.js"></script>
+    <script src="./blog_js/blogArticles.js"></script>
+    <script src="./blog_js/article.js"></script>
   </footer>
 </body>
 </html>
