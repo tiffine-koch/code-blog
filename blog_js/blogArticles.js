@@ -1,4 +1,4 @@
-var rawData = {}
+var rawData = {};
 //array of objects
 var rawData = [
   {
