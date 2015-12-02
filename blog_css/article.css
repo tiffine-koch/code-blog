@@ -1,5 +1,5 @@
 * {
-	background-color: #c6cdd1;
+	background-color: #eef0ef;
 	font-family: Arial;
 }
 #header-link{
@@ -9,10 +9,10 @@ header {
    justify-content: center;
    height: 150px;
    margin-top: 3%;
-   margin-left: 15%;
+   margin-left: 10%;
    margin-bottom: 3%;
-   margin-right: 15%;
-   background-color:  #c1a8ad ;
+   margin-right: 10%;
+   background-color:  #e3bdd1 ;
    box-shadow: 0px 0px 15px rgba(49,7,7,1);
    border-radius: 5px;
    text-overflow: ellipsis;
@@ -40,7 +40,7 @@ h1{
  font-size: 16px;
 }
 #index-nav{
- background-color: #c1a8ad ;
+ background-color: #e3bdd1;
  font-size: 18px;
  text-align: center;
 }
@@ -49,11 +49,12 @@ h1{
 	font-style: italic;
 	)
 #article-nav{
+	background-color: #e3bdd1;
 	color: #black;
 	font-size: 14px;
 }
 #header-link{
- background-color: #c1a8ad ;
+ background-color: #e3bdd1;
  color: #3b5272;
  padding-left: 10px;
  padding-right: 10px;
