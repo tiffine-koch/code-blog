@@ -1,5 +1,6 @@
 //array of rawData objects
 blog.rawData = [
+
   {
     title:       'Bacon Ipsum',
     category:    'food',
