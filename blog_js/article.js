@@ -1,7 +1,5 @@
-//blog object
-var blog = {};
-var articleObjects = [];
 var newArticle;
+
 //object constructor - article objects that all have the same properties
 var Article = function(prop) {
   this.title = prop.title;
@@ -11,7 +9,6 @@ var Article = function(prop) {
   this.publishedOn = prop.publishedOn;
   this.body = prop.body;
 };
-
 //protoype to render in html
 Article.prototype.toHTML = function() {
   var $article = $('#template').clone();
@@ -20,32 +17,18 @@ Article.prototype.toHTML = function() {
   $article.find('.category').html(this.category);
   $article.find('.author').html(this.author);
   $article.find('.authorUrl').html(this.authorUrl);
-  $article.find('.publishedOn').html(this.publishedOn);
   $article.find('.body').html(this.body);
+  $article.find('.publishedOn').html(this.getDate());
   $('main').append($article);
-    //console.log($article);
+  //co-written with Mary Dickson
+  var $string = ('<option>' + this.author + '</option>');
+  $('#authDropDown').append($string);
+  var $string = ('<option>' + this.category + '</option>');
+  $('#catDropDown').append($string);
 };
-
-function createArticle () {
-  for (var i = 0; i < rawData.length; i++) {
-    var newArticle = new Article(rawData[i]);
-    newArticle.toHTML();
-    articleObjects.push(newArticle);
-  }
-  //remove template from html
-  $('#template').remove();
-}
-//callback function for sorting articles by date
-createArticle();
-//
-// blog.rawData function(){
-//     if(a.publishedOn > b.publishedOn) (return -1);
-//     if(a.publishedOn > b.publishedOn) (return 1);
-//     return 0;
-//   };
-// }
-//
-// $(document).ready(){
-//   blog.sortRawData();
-//   blog.createRawData();
-// }
+Article.prototype.getDate = function() {
+  //math help from Dave Swaintek
+  var returnDate = (Math.floor((new Date - new Date(this.publishedOn))/86400000)
+   + ' Days Ago');
+  return returnDate;
+};
