@@ -1,4 +1,3 @@
-//array of rawData objects
 blog.rawData = [
 
   {

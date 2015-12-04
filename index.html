@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="./blog_css/article.css" rel="stylesheet" />
-  <link href="./blog_css/skeleton.css" rel="stylesheet" />
-  <link href="./blog_css/normalize.css" rel="stylesheet" />
+
+<meta charset="UTF-8">
+<title>Handlebars Template</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+<link href="./blog_css/article.css" rel="stylesheet" />
+<link href="./blog_css/skeleton.css" rel="stylesheet" />
+<link href="./blog_css/normalize.css" rel="stylesheet" />
 </head>
 <body>
   <header>
      <h1>
       My So-Code Life
     </h1>
-    <nav id="index-nav">
-      <a id="header-link">Author</a>
-      <a id="header-link">Title</a>
-      <a id="header-link">Twitter</a>
-      <a id="header-link">Linkedin</a>
-    </nav>
   </header>
   <main>
-    <article id="template">
+    <nav id="index-nav">
+      <a id="byMe">By Tiffine Koch</a>
+      <a id="aboutMe">About the Author</a>
+      <a id="linkTwitter">Twitter</a>
+      <a id="linkLinkedin">Linkedin</a>
+      <select id="authDropDown">
+        <option id="authButton">Author</option>
+      </select>
+      <select id="catDropDown">
+        <option id="catButton">Category</option>
+      </select>
+    </nav>
+      <article id="template">
           <h2 class="title"></h2>
-        <nav id="article-nav">
-          By  <a class="author"></a>
-          Published On  <a class="publishedOn"></a>
-          Category  <a class="category"></a>
-          <a id="author-link" href="authorUrl">About the Author</a>
-        </nav>
-          <section class="body"></section>
+          <section id="article-bar">
+            By   <a class="author" href=class="authorUrl"></a>
+            Published  <a class="publishedOn"></a>
+            Category   <a class="category"></a>
+          </section>
+          <section class="body">
+          </section>
+          <a id="read-more" href="body">Read More</a>
       </article>
   </main>
   <footer>
     <script src="./blog_js/jquery-1.11.3.min.js"></script>
-    <script src="./blog_js/blogArticles.js"></script>
     <script src="./blog_js/article.js"></script>
+    <script src="./blog_js/blog.js"></script>
+    <script src="./blog_js/blogArticles.js"></script>
+    <script src="./blog_js/index.js"></script>
   </footer>
 </body>
 </html>

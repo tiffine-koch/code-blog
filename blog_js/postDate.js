@@ -1,5 +1,5 @@
-Article.protoype.postDate = function(date);
-var today = new Date();
+Article.protoype.postDate = function(longdate);
+var rawDate = new Date();
 var dd = parseInt(today,getDate());
 var mm = parseInt(today,getMonth() + 1);
 var yyyy = parseInt(today,getYear());
@@ -12,6 +12,10 @@ var differentDays
 
 $(document).ready(function() {
   blog.createAll();
-  $('#post').remove();
+  $('#template').remove();
   blog.truncateArticles();
+}
+
+$('authButton').on('click', function(event) {
+
 }
