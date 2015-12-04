@@ -20,12 +20,14 @@ Article.prototype.toHTML = function() {
   $article.find('.body').html(this.body);
   $article.find('.publishedOn').html(this.getDate());
   $('main').append($article);
+  //co-written with Mary Dickson
   var $string = ('<option>' + this.author + '</option>');
   $('#authDropDown').append($string);
   var $string = ('<option>' + this.category + '</option>');
   $('#catDropDown').append($string);
 };
 Article.prototype.getDate = function() {
+  //math help from Dave Swaintek
   var returnDate = (Math.floor((new Date - new Date(this.publishedOn))/86400000)
    + ' Days Ago');
   return returnDate;

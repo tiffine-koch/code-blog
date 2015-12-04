@@ -10,7 +10,7 @@ blog.createArticles = function() {
   }
   $('#template').remove();
 };
-
+//from class notes - Brook Riggio
 blog.truncateArticles = function() {
   $('main p:not(:first-child)').hide();
   $('body').on('click', '.read-more', function(event) {
