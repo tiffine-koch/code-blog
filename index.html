@@ -19,16 +19,17 @@
   <main>
     <nav id="index-nav">
       <a id="byMe">By Tiffine Koch</a>
-      <a id="aboutMe">About the Author</a>
+      <button type="button">About Me</button>
       <a id="linkTwitter">Twitter</a>
       <a id="linkLinkedin">Linkedin</a>
-      <select id="authDropDown">
-        <option id="authButton">Author</option>
-      </select>
-      <select id="catDropDown">
-        <option id="catButton">Category</option>
-      </select>
     </nav>
+    <form id="filteringForm">
+      <select id="authDropDown" class="four columns">
+      <option value="reset">---Choose Author---</option>
+      </select>
+      <select id="catDropDown" class="four columns">
+      <option value="reset">---Choose Category---</option>
+      </select>
       <article id="template">
           <h2 class="title"></h2>
           <section id="article-bar">
@@ -36,9 +37,8 @@
             Published  <a class="publishedOn"></a>
             Category   <a class="category"></a>
           </section>
-          <section class="body">
-          </section>
-          <a id="read-more" href="body">Read More</a>
+          <section class="body"></section>
+          <button class="read-more" type="click">Read More</button>
       </article>
   </main>
   <footer>

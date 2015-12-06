@@ -12,8 +12,8 @@ blog.createArticles = function() {
 };
 //from class notes - Brook Riggio
 blog.truncateArticles = function() {
-  $('main p:not(:first-child)').hide();
-  $('body').on('click', '.read-more', function(event) {
+  $('.body p:not(:first-child)').hide();
+  $('main').on('click', '.read-more', function(event) {
     event.preventDefault();
     $(this).parent().find('p').fadeIn();
     $(this).hide();
@@ -21,7 +21,7 @@ blog.truncateArticles = function() {
 };
 //sort rawData function
 blog.sortArticles = function(){
-  blog.sortRawData.sort = function (a, b) {
+  blog.rawData.sort(function (a, b) {
     if (a.publishedOn < b.publishedOn) {
       return 1;
     }
@@ -29,31 +29,45 @@ blog.sortArticles = function(){
       return -1;
     }
     return 0;
-  };
+  });
 };
+//pair programmed with Robert Hill to create this function
+blog.createFilterList = function(array, prop) {
+  for (var i = 0; i < this.rawData.length; i++) {
+    var x = this.rawData[i][prop];
+    if(array.indexOf(x) === -1){
+    array.push(x);
+    }
+  }
 
-// blog.getAuthList = function() {
-//
-//   $('#authButton').find('.author').html(this.author);
-//   $('select').appendtoChild($authButton);
-//   $authButton.on('click', function() {
-//   $authorList.find('.author').html(this.author);
-//   $('author').firstChild($dropDown); });
-//   $('#author').change(function() {
-//   var $clickedAuth = $('#author').find(':selected').text();
-//     $('article').hide();
-//     $selectedAuth.show();
-// });
-//
-// $catButton.on('click', function() {
-//   $acategoryList.find('.category').html(this.category);
-//   $('category').firstChild($dropDown); });
-//   $('article a').on('click', function() {
-//     event.preventDefault();
-//     $(this).prev().children('.hide').toggle();
-//   });
-//   $('#category').change(function() {
-//   var $clickedCat = $('#author').find(':selected').text();
-//     $('article').hide();
-//     $clickedCat.show();
-// });
+  for (var i = 0; i < this.rawData.length; i++) {
+    var $opt = $('<option></option>');
+    $opt.attr('value', array[i]);
+    $opt.attr('id', array[i]);
+    $opt.text(array[i]);
+    $('#'+prop + 'List').append($opt);
+  }
+};
+//filter Categories in dropDown
+blog.filterList = function(){
+  blog.createFilterList(blog.authDropDown, 'author');
+  blog.createFilterList(blog.catDropDown, 'category');
+  $('#authDropDown').change(function() {
+    $('main').find('article').attr('selected', true);
+    if($(this).val() !== 'none') {
+      $('main').find('article').show();
+      console.log(this.value);
+    } else {
+      $('main').find('.category:not(:contains(' + $(this).val() + '))').parents('article').hide();
+    }
+  });
+  $('#catDropDown').change(function() {
+    $('main').find('article').attr('selected', true);
+    if($(this).val() !== 'none') {
+      $('main').find('article').show();
+      console.log(this.value);
+    } else {
+      $('main').find('.category:not(:contains(' + $(this).val() + '))').parents('article').hide();
+    }
+  });
+};
