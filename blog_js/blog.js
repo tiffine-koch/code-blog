@@ -1,5 +1,6 @@
 //blog object
 var blog = {};
+//var util = {};
 blog.articleObjects = [];
 
 blog.createArticles = function() {
@@ -31,43 +32,43 @@ blog.sortArticles = function(){
     return 0;
   });
 };
-//pair programmed with Robert Hill to create this function
-blog.createFilterList = function(array, prop) {
-  for (var i = 0; i < this.rawData.length; i++) {
-    var x = this.rawData[i][prop];
-    if(array.indexOf(x) === -1){
-    array.push(x);
-    }
-  }
+//script notes 301 to create this function
+blog.createFilterList = function() {
+  $('article').each(function() {
+    var val = $(this).find('.author').text();
+    var option = ('<option value="' + val + '">' + val + '</option>');
+    $('#authDropDown').append(option);
 
-  for (var i = 0; i < this.rawData.length; i++) {
-    var $opt = $('<option></option>');
-    $opt.attr('value', array[i]);
-    $opt.attr('id', array[i]);
-    $opt.text(array[i]);
-    $('#'+prop + 'List').append($opt);
-  }
-};
-//filter Categories in dropDown
-blog.filterList = function(){
-  blog.createFilterList(blog.authDropDown, 'author');
-  blog.createFilterList(blog.catDropDown, 'category');
-  $('#authDropDown').change(function() {
-    $('main').find('article').attr('selected', true);
-    if($(this).val() !== 'none') {
-      $('main').find('article').show();
-      console.log(this.value);
-    } else {
-      $('main').find('.category:not(:contains(' + $(this).val() + '))').parents('article').hide();
-    }
-  });
-  $('#catDropDown').change(function() {
-    $('main').find('article').attr('selected', true);
-    if($(this).val() !== 'none') {
-      $('main').find('article').show();
-      console.log(this.value);
-    } else {
-      $('main').find('.category:not(:contains(' + $(this).val() + '))').parents('article').hide();
+    val = $(this).find('.category').text();
+    option = '<option value="' + val + '">' + val + '</option>';
+    if ($('#catDropDown option[value=' + val + ']').length === 0) {
+      $('#catDropDown').append(option);
     }
   });
 };
+//pair programmed with Robert Hill
+blog.filterAuthList = function(){
+  $('#authDropDown').on('change', function() {
+    $('main').find('article').attr('selected', true);
+    if($(this).val() !== 'none') {
+      $('main').find('.category:not(:contains(' + $(this).val() + '))').parents('article').hide();
+    } else {
+      $('main').find('article').show();
+      console.log(this.value);
+    }
+    $('#catDropDown').val('');
+  });
+};
+blog.filterCatList = function(){
+  $('#catDropDown').on('change', function() {
+    $('main').find('article').attr('selected', true);
+    if($(this).val() !== 'none') {
+      $('main').find('.category:not(:contains(' + $(this).val() + '))').parents('article').hide();
+    } else {
+      $('main').find('article').show();
+      console.log(this.value);
+    }
+    $('#authDropDown').val('');
+  });
+};
+//navigation control - needs work to be built here

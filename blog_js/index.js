@@ -1,10 +1,9 @@
-$(document ).ready(function() {
-  blog.createArticles();
+$(document).ready(function() {
   blog.sortArticles();
+  blog.createArticles();
   blog.truncateArticles();
-  createFilterList();
-  blog.filterList();
-  // blog.filterAuth();
-  // blog.filterCat();
-  // blog.showBio();
+  blog.createFilterList();
+  blog.filterAuthList();
+  blog.filterCatList();
+  blog.bioNav();
 });
