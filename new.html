@@ -40,23 +40,27 @@
     </form>
   </section>
   <main>
-      <article id="template">
-        <h2 class="title"></h2>
-        <section id="article-bar">
-        By   <a class="author" href=class="authorUrl"></a>
-        Published  <a class="publishedOn"></a>
-        Category   <a class="category"></a>
-        </section>
-        <section class="body"></section>
-        <button class="read-more" type="click">Read More</button>
-      </article>
+        <script id="article-template" type="text/x-handlebars-template">
+          <h2 class="title">{{title}}</h2>
+          <article id="article-bar">
+            <a class="author" href=class="{{{authorUrl}}}">By {{author}} </a>
+            <section class="publishedOn">Published {{publishedOn}} </section>
+            <section class="category">Category {{category}} </section>
+          </article>
+
+          <section class="body">{{{body}}}</section>
+          <button class="read-more" type="click">Read More</button>
+        </script>
+        <div class="content-placeholder"></div>
   </main>
   <footer>
     <script src="./blog_js/jquery-1.11.3.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="./blog_js/article.js"></script>
     <script src="./blog_js/blog.js"></script>
     <script src="./blog_js/blogArticles.js"></script>
     <script src="./blog_js/index.js"></script>
+     <script src="./blog_js/new.js"></script>
   </footer>
 </body>
 </html>
