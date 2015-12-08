@@ -7,7 +7,7 @@ var templateScript = $("#article-template").html();
 var compileTemplate = Handlebars.compile(templateScript);
  // define object
  //will adapt this to form and write in markdown
-var newArticle = new Article(content) {
+var newArticle = new Article(blog.rawData[0]) {
   title: $('#article-title').val(),
   category: $('#article-category').val(),
   author: $('#article-author').val(),
@@ -16,8 +16,9 @@ var newArticle = new Article(content) {
   publishedOn: $('#article-publishedOn').val(),
   };
 // pass formData to template
-var compiledHtml = compileTemplate(content);
+var compiledHtml = compileTemplate(newArticle);
 // Add the compiled html to the page
-  $('.content-placeholder').newArticle.toHTML();
+// $('.content-placeholder').newArticle.toHTML();
+$('.content-placeholder').html(compiledHtml);
 //append - write code
 });
