@@ -1,37 +1,64 @@
 <!DOCTYPE html>
-
 <html>
+<head>
 
-  <head>
-    <title>
-
-    </title>
-  </head>
-  <body>
-    <header>
-      <h1>
+<meta charset="UTF-8">
+<title>Tiff's Blog</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+<link href="./blog_css/article.css" rel="stylesheet" />
+<link href="./blog_css/skeleton.css" rel="stylesheet" />
+<link href="./blog_css/normalize.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+     <h1>
       My So-Code Life
     </h1>
-      <nav>
-        <aside></aside>
-      </nav>
-    </header>
-    <main>
-      <article id="template">
-        <ul>
-          <li class="title"></li>
-          <li class="category"><li>
-          <li class="author"></li>
-          <li class="authorUrl"></li>
-          <li class="publishedOn"></li>
-          <li class="body"></li>
-        </ul>
+    <nav class="tab-nav">
+      <p class="tab" data content="articles"><a>Home</a></p>
+      <section class ="about-tab" data-content="bio-content"><a href="#" class="icon-bio">About Me</a>
+          <header>Hello</header>
+          <body>
+            <h1>Life as a coding wannabe</h1>
+            <ul>
+              <li>Women in Tech</li>
+              <li>Code Fellows</li>
+            </ul>
+          </body>
+        </section>
+      <p><a id="linkTwitter" a href="http://twitter.com/tiffine-k" target="_blank" class="icon-twitter">Twitter</a></p>
+      <p><a id="linkGit" a href="http://github.com/tiffine-koch" target="_blank" class="icon-github">GitHub</a></p>
+    </nav>
+  </header>
+  <section>
+    <form id="filteringForm">
+      <select id="authDropDown" class="five columns">
+      <option value="reset">---Choose Author---</option>
+      </select>
+      <select id="catDropDown" class="five columns">
+      <option value="reset">---Choose Category---</option>
+      </select>
+    </form>
+  </section>
+  <main>
+      <article id="template" type="text/x-article-template">
+        <h2 class="title"></h2>
+        <section id="article-bar">
+        By   <a class="author" href=class="authorUrl"></a>
+        Published  <a class="publishedOn"></a>
+        Category   <a class="category"></a>
+        </section>
+        <section class="body"></section>
+        <button class="read-more" type="click">Read More</button>
       </article>
-    </main>
+  </main>
   <footer>
+    <script src="./blog_js/jquery-1.11.3.min.js"></script>
+    <script src="./blog_js/article.js"></script>
+    <script src="./blog_js/blog.js"></script>
+    <script src="./blog_js/blogArticles.js"></script>
+    <script src="./blog_js/index.js"></script>
   </footer>
-  <script src="./blog_js/jquery-1.11.3.min.js"></script>
-  <script src="./blog_js/blogArticles.js"></script>
-  <script src="./blog_js/article.js"></script>
-  </body>
+</body>
 </html>
