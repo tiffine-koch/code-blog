@@ -1,5 +1,6 @@
 //blog object
 var blog = {};
+//var util = {};
 blog.articleObjects = [];
 
 blog.createArticles = function() {
@@ -12,8 +13,8 @@ blog.createArticles = function() {
 };
 //from class notes - Brook Riggio
 blog.truncateArticles = function() {
-  $('main p:not(:first-child)').hide();
-  $('body').on('click', '.read-more', function(event) {
+  $('.body p:not(:first-child)').hide();
+  $('main').on('click', '.read-more', function(event) {
     event.preventDefault();
     $(this).parent().find('p').fadeIn();
     $(this).hide();
@@ -21,7 +22,7 @@ blog.truncateArticles = function() {
 };
 //sort rawData function
 blog.sortArticles = function(){
-  blog.sortRawData.sort = function (a, b) {
+  blog.rawData.sort(function (a, b) {
     if (a.publishedOn < b.publishedOn) {
       return 1;
     }
@@ -29,31 +30,45 @@ blog.sortArticles = function(){
       return -1;
     }
     return 0;
-  };
+  });
 };
+//script notes 301 to create this function
+blog.createFilterList = function() {
+  $('article').each(function() {
+    var val = $(this).find('.author').text();
+    var option = ('<option value="' + val + '">' + val + '</option>');
+    $('#authDropDown').append(option);
 
-// blog.getAuthList = function() {
-//
-//   $('#authButton').find('.author').html(this.author);
-//   $('select').appendtoChild($authButton);
-//   $authButton.on('click', function() {
-//   $authorList.find('.author').html(this.author);
-//   $('author').firstChild($dropDown); });
-//   $('#author').change(function() {
-//   var $clickedAuth = $('#author').find(':selected').text();
-//     $('article').hide();
-//     $selectedAuth.show();
-// });
-//
-// $catButton.on('click', function() {
-//   $acategoryList.find('.category').html(this.category);
-//   $('category').firstChild($dropDown); });
-//   $('article a').on('click', function() {
-//     event.preventDefault();
-//     $(this).prev().children('.hide').toggle();
-//   });
-//   $('#category').change(function() {
-//   var $clickedCat = $('#author').find(':selected').text();
-//     $('article').hide();
-//     $clickedCat.show();
-// });
+    val = $(this).find('.category').text();
+    option = '<option value="' + val + '">' + val + '</option>';
+    if ($('#catDropDown option[value=' + val + ']').length === 0) {
+      $('#catDropDown').append(option);
+    }
+  });
+};
+//pair programmed with Robert Hill
+blog.filterAuthList = function(){
+  $('#authDropDown').on('change', function() {
+    $('main').find('article').attr('selected', true);
+    if($(this).val() !== 'none') {
+      $('main').find('.category:not(:contains(' + $(this).val() + '))').parents('article').hide();
+    } else {
+      $('main').find('article').show();
+      console.log(this.value);
+    }
+    $('#catDropDown').val('');
+  });
+};
+blog.filterCatList = function(){
+  $('#catDropDown').on('change', function() {
+    $('main').find('article').attr('selected', true);
+    if($(this).val() !== 'none') {
+      $('main').find('.category:not(:contains(' + $(this).val() + '))').parents('article').hide();
+    } else {
+      $('main').find('article').show();
+      console.log(this.value);
+    }
+    $('#authDropDown').val('');
+  });
+};
+//navigation control - needs work to be built here
