@@ -40,6 +40,3 @@ demo.getDone = function () {
 demo.getDoneR = function () {
   console.log('I should come third!');
 }
-$.get('dialog/speech1.txt', demo.getData)
-  .done(demo.getDone)
-  .done(demo.getDoneR);

@@ -9,9 +9,9 @@ blog.createArticles = function() {
     newArticle.toHTML();
     this.articleObjects.push(newArticle);
   }
-  $('#template').remove();
+  $('#templat e').remove();
 };
-//from class notes - Brook Riggio
+//from class  notes - Brook Riggio
 blog.truncateArticles = function() {
   $('.body p:not(:first-child)').hide();
   $('main').on('click', '.read-more', function(event) {
@@ -72,3 +72,8 @@ blog.filterCatList = function(){
   });
 };
 //navigation control - needs work to be built here
+//JSON file
+blog.exportJSON = function() {
+  $('#export-field').show();
+  $('#article-json').val(JSON.stringify(blog.buildArticle()) + ',');
+};
